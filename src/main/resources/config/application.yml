@@ -152,3 +152,7 @@ application:
     kafka-enabled: true
     kafka-system-topic: system_topic
     kafka-system-queue: system_queue
+    retry:
+        max-attempts: 3
+        delay: 1000 #in milliseconds
+        multiplier: 2
