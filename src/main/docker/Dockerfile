@@ -13,11 +13,10 @@ EXPOSE 8706
 
 ENTRYPOINT /entrypoint.sh
 
-RUN apt-get update && apt-get install -y locales locales-all zip unzip curl && apt-get clean
 
 ADD src/main/docker/entrypoint.sh /
 
-RUN chmod 755 entrypoint.sh
+RUN chmod 755 entrypoint.sh && apt-get update && apt-get install -y locales locales-all zip unzip curl && apt-get clean
 
 ADD build/libs/*.war /app.war
 
