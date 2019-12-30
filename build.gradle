@@ -6,10 +6,12 @@ buildscript {
         mavenCentral()
         gradlePluginPortal()
         maven { url "https://repo.spring.io/plugins-release" }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         //jhipster-needle-gradle-buildscript-dependency - JHipster will add additional gradle build script plugins here
-    }
+	classpath "org.openapitools:openapi-generator-gradle-plugin:4.2.2"    
+	}
 }
 
 plugins {
@@ -27,7 +29,6 @@ plugins {
     id "org.sonarqube"
     id "io.spring.nohttp"
     id 'war'
-    id 'io.spring.dependency-management'
     id 'checkstyle'
     id 'pmd'
     //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
@@ -309,9 +310,10 @@ dependencies {
     implementation "com.icthh.xm.commons:xm-commons-logging-web:${xm_commons_version}"
     implementation "com.icthh.xm.commons:xm-commons-permission:${xm_commons_version}"
     implementation "com.icthh.xm.commons:xm-commons-ms-web:${xm_commons_version}"
-    implementation "com.icthh.xm.commons:xm-commons-lep:${xm_commons_version}"    
+    implementation "com.icthh.xm.commons:xm-commons-lep:${xm_commons_version}"
     implementation "com.icthh.xm.commons:xm-commons-timeline:${xm_commons_version}"
     implementation "com.icthh.xm.commons:xm-commons-metric:${xm_commons_version}"
+    implementation "org.openapitools:jackson-databind-nullable:${jackson_databind_nullable_version}"
 
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct_version}"
     annotationProcessor "org.hibernate:hibernate-jpamodelgen:${hibernate_version}"
@@ -352,6 +354,10 @@ wrapper {
     gradleVersion = "6.0.1"
 }
 
+task stage(dependsOn: 'bootWar') {
+}
+
+bootWar.dependsOn war
 compileJava.dependsOn processResources
 processResources.dependsOn cleanResources,bootBuildInfo
 bootBuildInfo.mustRunAfter cleanResources
