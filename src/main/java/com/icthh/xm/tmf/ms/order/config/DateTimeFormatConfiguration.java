@@ -1,4 +1,4 @@
-package com.icthh.xm.tmf.ms.offering.config;
+package com.icthh.xm.tmf.ms.order.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;

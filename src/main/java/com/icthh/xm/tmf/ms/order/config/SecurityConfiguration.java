@@ -1,10 +1,10 @@
-package com.icthh.xm.tmf.ms.offering.config;
+package com.icthh.xm.tmf.ms.order.config;
 
-import com.icthh.xm.tmf.ms.offering.config.oauth2.OAuth2JwtAccessTokenConverter;
-import com.icthh.xm.tmf.ms.offering.config.oauth2.OAuth2Properties;
-import com.icthh.xm.tmf.ms.offering.security.oauth2.OAuth2SignatureVerifierClient;
-import com.icthh.xm.tmf.ms.offering.security.AuthoritiesConstants;
-
+import com.icthh.xm.commons.security.oauth2.ConfigSignatureVerifierClient;
+import com.icthh.xm.commons.security.oauth2.OAuth2JwtAccessTokenConverter;
+import com.icthh.xm.commons.security.oauth2.OAuth2Properties;
+import com.icthh.xm.commons.security.oauth2.OAuth2SignatureVerifierClient;
+import com.icthh.xm.tmf.ms.order.security.AuthoritiesConstants;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.loadbalancer.RestTemplateCustomizer;
 import org.springframework.context.annotation.Bean;
@@ -17,13 +17,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
+
     private final OAuth2Properties oAuth2Properties;
 
     public SecurityConfiguration(OAuth2Properties oAuth2Properties) {
@@ -38,15 +38,14 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
             .headers()
             .frameOptions()
             .disable()
-        .and()
+            .and()
             .sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and()
+            .and()
             .authorizeRequests()
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
-            .antMatchers("/management/prometheus").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
     }
 
@@ -61,7 +60,7 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
     }
 
     @Bean
-	@Qualifier("loadBalancedRestTemplate")
+    @Qualifier("loadBalancedRestTemplate")
     public RestTemplate loadBalancedRestTemplate(RestTemplateCustomizer customizer) {
         RestTemplate restTemplate = new RestTemplate();
         customizer.customize(restTemplate);
@@ -72,5 +71,11 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
     @Qualifier("vanillaRestTemplate")
     public RestTemplate vanillaRestTemplate() {
         return new RestTemplate();
+    }
+
+    @Bean
+    public ConfigSignatureVerifierClient configSignatureVerifierClient(
+        @Qualifier("loadBalancedRestTemplate") RestTemplate restTemplate) {
+        return new ConfigSignatureVerifierClient(oAuth2Properties, restTemplate);
     }
 }

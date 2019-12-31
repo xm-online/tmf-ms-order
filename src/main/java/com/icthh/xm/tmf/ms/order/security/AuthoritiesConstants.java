@@ -1,4 +1,4 @@
-package com.icthh.xm.tmf.ms.offering.security;
+package com.icthh.xm.tmf.ms.order.security;
 
 /**
  * Constants for Spring Security authorities.

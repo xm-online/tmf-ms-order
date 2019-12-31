@@ -1,4 +1,4 @@
 /**
  * Audit specific code.
  */
-package com.icthh.xm.tmf.ms.offering.config.audit;
+package com.icthh.xm.tmf.ms.order.config.audit;

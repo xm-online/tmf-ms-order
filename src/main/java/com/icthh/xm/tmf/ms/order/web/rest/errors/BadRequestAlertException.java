@@ -1,11 +1,10 @@
-package com.icthh.xm.tmf.ms.offering.web.rest.errors;
-
-import org.zalando.problem.AbstractThrowableProblem;
-import org.zalando.problem.Status;
+package com.icthh.xm.tmf.ms.order.web.rest.errors;
 
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
+import org.zalando.problem.AbstractThrowableProblem;
+import org.zalando.problem.Status;
 
 public class BadRequestAlertException extends AbstractThrowableProblem {
 

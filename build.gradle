@@ -10,8 +10,10 @@ buildscript {
     }
     dependencies {
         //jhipster-needle-gradle-buildscript-dependency - JHipster will add additional gradle build script plugins here
-	classpath "org.openapitools:openapi-generator-gradle-plugin:4.2.2"    
-	}
+	classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
+	classpath "org.openapitools:openapi-generator-gradle-plugin:4.2.2"
+        classpath "gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:1.5.2"
+    }
 }
 
 plugins {
@@ -27,10 +29,10 @@ plugins {
     id "net.ltgt.apt"
     id "org.liquibase.gradle"
     id "org.sonarqube"
-    id "io.spring.nohttp"
     id 'war'
     id 'checkstyle'
     id 'pmd'
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
     //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
@@ -50,7 +52,7 @@ assert System.properties["java.specification.version"] == "11" || "12" || "13"
 
 apply from: "gradle/docker.gradle"
 apply from: "gradle/sonar.gradle"
-apply from: 'gradle/swagger.gradle'
+apply from: "gradle/swagger.gradle"
 
 //jhipster-needle-gradle-apply-from - JHipster will add additional gradle scripts to be applied here
 
@@ -219,10 +221,6 @@ liquibase {
     }
 
     runList = project.ext.runList
-}
-
-nohttp {
-    source.include "build.gradle", "README.md"
 }
 
 configurations {

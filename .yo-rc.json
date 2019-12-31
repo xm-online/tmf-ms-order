@@ -1,14 +1,14 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.icthh.xm.tmf.ms.offering",
+      "packageName": "com.icthh.xm.tmf.ms.order",
       "nativeLanguage": "en"
     },
     "jhipsterVersion": "6.5.1",
     "applicationType": "microservice",
     "baseName": "order",
-    "packageName": "com.icthh.xm.tmf.ms.offering",
-    "packageFolder": "com/icthh/xm/tmf/ms/offering",
+    "packageName": "com.icthh.xm.tmf.ms.order",
+    "packageFolder": "com/icthh/xm/tmf/ms/order",
     "serverPort": "8706",
     "authenticationType": "uaa",
     "uaaBaseName": "uaa",

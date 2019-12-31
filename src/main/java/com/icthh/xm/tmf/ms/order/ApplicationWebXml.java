@@ -1,11 +1,11 @@
-package com.icthh.xm.tmf.ms.offering;
+package com.icthh.xm.tmf.ms.order;
 
-import com.icthh.xm.tmf.ms.offering.config.DefaultProfileUtil;
+import com.icthh.xm.tmf.ms.order.config.DefaultProfileUtil;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- * This is a helper Java class that provides an alternative to creating a {@code web.xml}.
+ * This is a helper Java class that provides an alternative to creating a web.xml.
  * This will be invoked only when the application is deployed to a Servlet container like Tomcat, JBoss etc.
  */
 public class ApplicationWebXml extends SpringBootServletInitializer {

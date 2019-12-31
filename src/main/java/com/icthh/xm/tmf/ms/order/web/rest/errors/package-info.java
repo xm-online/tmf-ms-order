@@ -3,4 +3,4 @@
  *
  * More information on https://github.com/zalando/problem-spring-web
  */
-package com.icthh.xm.tmf.ms.offering.web.rest.errors;
+package com.icthh.xm.tmf.ms.order.web.rest.errors;

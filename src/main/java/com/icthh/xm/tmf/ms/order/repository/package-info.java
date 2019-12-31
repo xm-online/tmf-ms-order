@@ -1,4 +1,4 @@
 /**
  * Spring Data JPA repositories.
  */
-package com.icthh.xm.tmf.ms.offering.repository;
+package com.icthh.xm.tmf.ms.order.repository;

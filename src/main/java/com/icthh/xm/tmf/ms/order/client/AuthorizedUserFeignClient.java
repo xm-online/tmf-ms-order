@@ -1,7 +1,10 @@
-package com.icthh.xm.tmf.ms.offering.client;
+package com.icthh.xm.tmf.ms.order.client;
 
-import java.lang.annotation.*;
-
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.FeignClientsConfiguration;
 import org.springframework.core.annotation.AliasFor;
@@ -16,12 +19,12 @@ public @interface AuthorizedUserFeignClient {
     String name() default "";
 
     /**
-     * A custom {@code @Configuration} for the feign client.
+     * A custom <code>@Configuration</code> for the feign client.
      *
-     * Can contain override {@code @Bean} definition for the pieces that make up the client, for instance {@link
+     * Can contain override <code>@Bean</code> definition for the pieces that make up the client, for instance {@link
      * feign.codec.Decoder}, {@link feign.codec.Encoder}, {@link feign.Contract}.
      *
-     * @see FeignClientsConfiguration for the defaults.
+     * @see FeignClientsConfiguration for the defaults
      */
     @AliasFor(annotation = FeignClient.class, attribute = "configuration")
     Class<?>[] configuration() default OAuth2UserClientFeignConfiguration.class;
@@ -43,7 +46,7 @@ public @interface AuthorizedUserFeignClient {
     Class<?> fallback() default void.class;
 
     /**
-     * Path prefix to be used by all method-level mappings. Can be used with or without {@code @RibbonClient}.
+     * Path prefix to be used by all method-level mappings. Can be used with or without <code>@RibbonClient</code>.
      */
     String path() default "";
 }

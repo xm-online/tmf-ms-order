@@ -1,14 +1,12 @@
-package com.icthh.xm.tmf.ms.offering.security;
+package com.icthh.xm.tmf.ms.order.security;
 
-import com.icthh.xm.tmf.ms.offering.config.Constants;
-
+import com.icthh.xm.tmf.ms.order.config.Constants;
 import java.util.Optional;
-
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 
 /**
- * Implementation of {@link AuditorAware} based on Spring Security.
+ * Implementation of AuditorAware based on Spring Security.
  */
 @Component
 public class SpringSecurityAuditorAware implements AuditorAware<String> {

@@ -1,14 +1,14 @@
-package com.icthh.xm.tmf.ms.offering.config;
+package com.icthh.xm.tmf.ms.order.config;
 
 import io.github.jhipster.config.JHipsterConstants;
-
+import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.config.java.AbstractCloudConfig;
-import org.springframework.context.annotation.*;
-
-import javax.sql.DataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.config.java.AbstractCloudConfig;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 
 @Configuration
@@ -17,7 +17,7 @@ public class CloudDatabaseConfiguration extends AbstractCloudConfig {
 
     private final Logger log = LoggerFactory.getLogger(CloudDatabaseConfiguration.class);
     
-    private static final String CLOUD_CONFIGURATION_HIKARI_PREFIX = "spring.datasource.hikari";
+    private final String CLOUD_CONFIGURATION_HIKARI_PREFIX = "spring.datasource.hikari";
 
     @Bean
     @ConfigurationProperties(CLOUD_CONFIGURATION_HIKARI_PREFIX)
