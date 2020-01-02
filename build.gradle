@@ -40,13 +40,8 @@ version = "0.0.1-SNAPSHOT"
 
 description = ""
 
-bootWar {
-   mainClassName = 'com.icthh.xm.tmf.ms.order.OrderApp'
-}
-
-
-sourceCompatibility=1.11
-targetCompatibility=1.11
+sourceCompatibility=11
+targetCompatibility=11
 assert System.properties["java.specification.version"] == "11" || "12" || "13"
 
 apply from: "gradle/docker.gradle"
@@ -98,14 +93,6 @@ eclipse {
     }
 }
 
-
-war {
-}
-
-springBoot {
-    mainClassName = 'com.icthh.xm.tmf.ms.order.OrderApp'
-}
-
 // See https://virgo47.wordpress.com/2018/09/14/classpath-too-long-with-spring-boot-and-gradle/ for details
 // https://github.com/jhipster/generator-jhipster/issues/9713
 if (OperatingSystem.current().isWindows()) {
@@ -131,6 +118,19 @@ if (OperatingSystem.current().isWindows()) {
 
 defaultTasks "bootRun"
 
+springBoot {
+    mainClassName = 'com.icthh.xm.tmf.ms.order.OrderApp'
+}
+
+bootWar {
+    mainClassName = 'com.icthh.xm.tmf.ms.order.OrderApp'
+    manifest {
+        attributes(
+            "Implementation-Version": archiveVersion
+        )
+    }
+}
+
 test {
     exclude '**/CucumberTest*'
 
@@ -145,26 +145,10 @@ test {
     }
 }
 
-task integrationTest(type: Test) {
-    useJUnitPlatform()
-    description = "Execute integration tests."
-    group = "verification"
-    include "**/*IT*", "**/*IntTest*"
-    exclude "**/*CucumberIT*"
-
-    testLogging {
-        events 'FAILED', 'SKIPPED'
-    }
-    // uncomment if the tests reports are not generated
-    // see https://github.com/jhipster/generator-jhipster/pull/2771 and https://github.com/jhipster/generator-jhipster/pull/4484
-    // ignoreFailures true
-    reports.html.enabled = false
-}
-
 task cucumberTest(type: Test) {
     description = "Execute cucumber BDD tests."
     group = "verification"
-    include "**/*CucumberIT*"
+    include '**/CucumberTest*'
 
     // uncomment if the tests reports are not generated
     // see https://github.com/jhipster/generator-jhipster/pull/2771 and https://github.com/jhipster/generator-jhipster/pull/4484
@@ -176,11 +160,6 @@ check.dependsOn cucumberTest
 task testReport(type: TestReport) {
     destinationDir = file("$buildDir/reports/tests")
     reportOn test
-}
-
-task integrationTestReport(type: TestReport) {
-    destinationDir = file("$buildDir/reports/tests")
-    reportOn integrationTest
 }
 
 task cucumberTestReport(type: TestReport) {

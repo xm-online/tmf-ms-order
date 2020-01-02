@@ -25,6 +25,13 @@ spring:
         password:
         hikari:
             auto-commit: false
+    cloud:
+      bus:
+        enabled: false
+      discovery:
+        enabled: false
+      consul:
+        enabled: false
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedH2Dialect
         database: H2
@@ -43,7 +50,8 @@ spring:
             hibernate.generate_statistics: true
             hibernate.hbm2ddl.auto: validate
             hibernate.jdbc.time_zone: UTC
-            hibernate.model.generator_name_as_sequence_name: false # see org.hibernate.cfg.AvailableSettings.PREFER_GENERATOR_NAME_AS_DEFAULT_SEQUENCE_NAME
+            # see org.hibernate.cfg.AvailableSettings.PREFER_GENERATOR_NAME_AS_DEFAULT_SEQUENCE_NAME
+            hibernate.model.generator_name_as_sequence_name: false
     liquibase:
         contexts: test
     mail:
