@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/xm-online/tmf-ms-order.svg?branch=master)](https://travis-ci.org/xm-online/tmf-ms-order) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?&metric=sqale_index&branch=master&project=xm-online:tmf-ms-order)](https://sonarcloud.io/dashboard/index/xm-online:tmf-ms-order) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?&metric=ncloc&branch=master&project=xm-online:tmf-ms-order)](https://sonarcloud.io/dashboard/index/xm-online:tmf-ms-order) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?&metric=coverage&branch=master&project=xm-online:tmf-ms-order)](https://sonarcloud.io/dashboard/index/xm-online:tmf-ms-order)
+
 # order
 
 This application was generated using JHipster 5.7.2, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.7.2](https://www.jhipster.tech/documentation-archive/v5.7.2).
@@ -56,6 +58,8 @@ Sonar is used to analyse code quality. You can start a local Sonar server (acces
 docker-compose -f src/main/docker/sonar.yml up -d
 ```
 
+You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the gradle plugin.
+
 Then, run a Sonar analysis:
 
 ```
@@ -92,15 +96,12 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
 [jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 5.7.2 archive]: https://www.jhipster.tech/documentation-archive/v5.7.2
-[doing microservices with jhipster]: https://www.jhipster.tech/documentation-archive/v5.7.2/microservices-architecture/
-[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v5.7.2/development/
-[service discovery and configuration with consul]: https://www.jhipster.tech/documentation-archive/v5.7.2/microservices-architecture/#consul
-[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v5.7.2/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v5.7.2/production/
-[running tests page]: https://www.jhipster.tech/documentation-archive/v5.7.2/running-tests/
-[code quality page]: https://www.jhipster.tech/documentation-archive/v5.7.2/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v5.7.2/setting-up-ci/
-[openapi-generator]: https://openapi-generator.tech
-[swagger-editor]: http://editor.swagger.io
-[doing api-first development]: https://www.jhipster.tech/documentation-archive/v5.7.2/doing-api-first-development/
+[jhipster 6.5.1 archive]: https://www.jhipster.tech/documentation-archive/v6.5.1
+[doing microservices with jhipster]: https://www.jhipster.tech/documentation-archive/v6.5.1/microservices-architecture/
+[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.5.1/development/
+[service discovery and configuration with consul]: https://www.jhipster.tech/documentation-archive/v6.5.1/microservices-architecture/#consul
+[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.5.1/docker-compose
+[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.5.1/production/
+[running tests page]: https://www.jhipster.tech/documentation-archive/v6.5.1/running-tests/
+[code quality page]: https://www.jhipster.tech/documentation-archive/v6.5.1/code-quality/
+[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.5.1/setting-up-ci/

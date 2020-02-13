@@ -1,14 +1,14 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.icthh.xm.tmf.ms.offering",
+      "packageName": "com.icthh.xm.tmf.ms.order",
       "nativeLanguage": "en"
     },
-    "jhipsterVersion": "5.7.2",
+    "jhipsterVersion": "6.5.1",
     "applicationType": "microservice",
     "baseName": "order",
-    "packageName": "com.icthh.xm.tmf.ms.offering",
-    "packageFolder": "com/icthh/xm/tmf/ms/offering",
+    "packageName": "com.icthh.xm.tmf.ms.order",
+    "packageFolder": "com/icthh/xm/tmf/ms/order",
     "serverPort": "8706",
     "authenticationType": "uaa",
     "uaaBaseName": "uaa",
@@ -22,15 +22,19 @@
     "serviceDiscoveryType": "consul",
     "buildTool": "gradle",
     "enableSwaggerCodegen": true,
-    "jwtSecretKey": "M2U3YTYxZDJmY2JiZGZjODc5ZjY3YzQ2MDQ1MTQ0NzhlZDEyYjk2MjRlNmRjYzhkODgyOTBlOTI5YjE3ODAzOWI3OTk0M2UxMmQ3MmYxNGU3M2VkOWI3NjM1NzhlNGU3NzVlNTJiNTFkN2QxOWMxYmZhOTdhODg2MDk0MTJjYzY=",
+    "jwtSecretKey": "NzBkZjIxY2ZlZDNkZmU0ODQ4ZjA1NzFjMmEwZDA5ZjNlMGY3ZWJhYTZiZWMzMjdmZjk1YWViY2U2NGI4OGZmYmRlYjE5NmUzODk0NWJkMDE1MDFjYjAxOTRjNTFjOTI5YTk1MGUxMjdhMmI4NjRkMjM2YzVjZjczMTg3YzgwMzQ=",
+    "embeddableLaunchScript": false,
     "testFrameworks": [
       "gatling",
       "cucumber"
     ],
     "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": true,
     "clientPackageManager": "npm",
+    "blueprints": [],
     "nativeLanguage": "en",
     "languages": [
       "en"
